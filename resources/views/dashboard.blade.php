@@ -1,70 +1,73 @@
-
-
 <x-app-layout>
 
+    <h1 class="dashboard-title text-center">Dashboard</h1>
 
+    <!-- Container dos cards -->
+    <div class="container">
+        
+    <!-- Formulário para alunos -->
+        <form method="post" action="/alunos">
+            @csrf <!-- Para proteção contra CSRF -->
 
-@section('content')
+                <!-- Card Alunos -->
+                <div class="card">
+                <div class="icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Aluno</h3>
+                <p> Gerencie informações</p>
+                <a href="alunos">
+                    <button type="button" class="btn btn-primary">Acessar</button>
+                </a>
+                </div>
+        </form>
 
-<div class="container">
-    <h1 class="my-4">Dashboard</h1>
-    <div class="row">
-        <!-- Card Aluno -->
-       <!-- Dentro do bloco de Alunos -->
-<div class="col-md-3">
-    <div class="card text-center">
-        <div class="card-body">
-            <h5 class="card-title">Alunos</h5>
-            <p class="card-text">Gerencie os alunos.</p>
-            <a href="{{ route('alunos.create') }}" class="btn btn-primary">✚</a>
-            <a href="{{ route('alunos.index') }}" class="btn btn-info">Ver Alunos</a>
+        <!-- Card Cursos -->
+        <form method="post" action="/cursos">
+            @csrf
+            <div class="card m-2">
+                <div class="icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Cursos</h3>
+                <p>Gerencie os cursos.</p>
+                <a href="cursos">
+                    <button type="button" class="btn btn-primary">Gerenciar</button>
+                </a>
+            </div>
+        </form>
 
-            <!-- Formulário de adição de aluno -->
-            <form action="{{ route('alunos.store') }}" method="POST">
-                @csrf <!-- Token CSRF -->
-                <input type="text" name="nome" placeholder="Nome do Aluno">
-                <input type="email" name="email" placeholder="E-mail">
-                <!-- Outros campos aqui (data de nascimento, etc.) -->
-                <button type="submit">Adicionar Aluno</button>
-            </form>
-        </div>
+        <!-- Card Professores -->
+        <form method="post" action="/professores">
+            @csrf
+            <div class="card m-2">
+                <div class="icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Professores</h3>
+                <p>Gerencie os professores.</p>
+                <a href="professores">
+                    <button type="button" class="btn btn-primary">Gerenciar</button>
+                </a>
+            </div>
+        </form>
+        
+        <!-- Card Matrículas -->
+        <form method="post" action="/matriculas">
+            @csrf
+            <div class="card m-2">
+                <div class="icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>Matrículas</h3>
+                <p>Gerencie as matrículas.</p>
+                <a href="matriculas">
+                    <button type="button" class="btn btn-primary">Gerenciar</button>
+                </a>
+            </div>
+        </form>
     </div>
-</div>
 
-
-        <!-- Card Curso -->
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Cursos</h5>
-                    <p class="card-text">Gerencie os cursos.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card Professor -->
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Professores</h5>
-                    <p class="card-text">Gerencie os professores.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card Matrícula -->
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Matrículas</h5>
-                    <p class="card-text">Gerencie as matrículas.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@endsection
 <script src="{{ asset('js/app.js') }}"></script> 
 
 </x-app-layout>

@@ -1,26 +1,56 @@
 <x-app-layout>
 
-@section('content')
-    <h1>Cadastrar Novo Aluno</h1>
+    
 
-    <form action="{{ route('alunos.store') }}" method="POST">
+    <form action="\alunos" method="POST" class="form-container">
         @csrf
-        <div>
+
+        <h1 class="text-center">Cadastro de Aluno</h1>
+
+        <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" required>
+            <input type="text" name="nome" class="form-control" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" class="form-control" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="data_nascimento">Data de Nascimento:</label>
-            <input type="date" name="data_nascimento" required>
+            <input type="date" name="data_nascimento" class="form-control" required>
         </div>
 
-        <button type="submit">Cadastrar Aluno</button>
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" name="telefone" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="sexo">Sexo:</label>
+            <select name="sexo" class="form-control">
+                <option value="">Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+            </select>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success">Cadastrar Aluno</button>
+        </div>
     </form>
-@endsection
+
+    
 </x-app-layout>
