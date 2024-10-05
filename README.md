@@ -7,60 +7,59 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Repositório para Desenvolvimento de Projetos em Laravel
 
-## Learning Laravel
+## Introdução
+Laravel é um dos frameworks PHP mais populares e robustos, amplamente utilizado para o desenvolvimento de aplicações web. Sua arquitetura baseada em MVC (Model-View-Controller) e sua ênfase em simplicidade e elegância no código o tornam uma escolha popular entre desenvolvedores. Laravel oferece uma série de recursos que facilitam a criação de sistemas complexos de maneira eficiente, segura e escalável. Ademais, permite a separação lógica entre interface e funcionalidades, favorecendo a manutenção e a expansão do sistema.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📚 Ementa:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Neste documento, apresentamos um projeto proposto na disciplina de "Desenvolvimento Web II", pertencente à grade curricular do 5º termo do curso de Análise e Desenvolvimento de Sistemas da FATEC de Presidente Prudente-SP. O projeto consiste no desenvolvimento de um sistema de gerenciamento de cursos online. A necessidade do projeto se justifica através da popularização da educação à distância, tanto em instituições de ensino quanto em plataformas de cursos livres, havendo uma urgência de ferramentas que otimizem a administração e o acompanhamento de cursos e matrículas.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+O sistema proposto deverá conter funcionalidades essenciais de CRUD (Create, Read, Update, Delete) para gerenciamento de quatro entidades principais:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Alunos: Controle de cadastro de alunos, com dados pessoais, histórico de cursos e desempenho acadêmico.
+- Cursos: Gerenciamento de cursos ofertados, incluindo disciplinas, carga horária, ementas e descrição detalhada.
+- Professores: Controle de cadastro e associação de professores aos cursos, além do acompanhamento de suas atividades dentro da plataforma.
+- Matrículas: Controle do processo de inscrição de alunos nos cursos, possibilitando a organização de turmas, histórico de matrículas e status de participação.
 
-### Premium Partners
+🙏 Facilitadora: Prof.ª Mestre VANESSA DOS ANJOS BORGES.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+## 🎬 Conteúdos em PHP e Laravel:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Programação Orientada a Objetos com PHP e Laravel;
+- PHP Standards Recommendations (PSRs);
+- Princípios de Código Limpo e Arquitetura Limpa;
+- Desenvolvimento de aplicações utilizando Composer e arquitetura MVC;
+- Introdução ao Framework Laravel;
+- Arquitetura de Software Orientada a Serviços (SOA);
+- Testes, Queues e Event-Driven Programming com Laravel.
 
-## Code of Conduct
+## ⚓ Referências Bibliográficas
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+📖 STAUFFER, Matt. *Laravel Up & Running: A Framework for Building Modern PHP Apps*. 2. ed. O'Reilly Media, Inc., 2019.
 
-## Security Vulnerabilities
+📖 KILIÇDAĞI, Arda; ŞEN, İsmail. *Laravel Design Patterns and Best Practices*. Packt Publishing, 2014.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+📖 PECORARO, Christopher John. *Mastering Laravel*. Packt Publishing, 2016.
 
-## License
+📖 NARAMORE, E.; GERNER, J.; BORONCZYK, T. *Beginning PHP 6, Apache, MYSQL 6 Web Development*. John Wiley Consumer, 2009.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+📖 BORGES JR, M. P. *Desenvolvendo Webservices - Guia Rápido Usando Visual Studio.Net com Banco de dados*. Ciência Moderna, 2005.
+
+📖 KURNIAWAN, B. *Java para Web com Servlets, JSP e EJB*. São Paulo: Ciência Moderna, 2002.
+
+## 🔗 Fontes e Tutoriais
+
+🔗 [Laravel Documentation](https://laravel.com/docs)  
+🔗 [PHP Manual - Acesso em: 11 ago. 2024](https://www.php.net/manual/en/)  
+🔗 [W3SCHOOLS - PHP Tutorial](https://www.w3schools.com/php/)  
+🔗 [LARACASTS - PHP for Beginners](https://laracasts.com/series/php-for-beginners)
+
+
+
