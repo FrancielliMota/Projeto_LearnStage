@@ -34,8 +34,12 @@
         }
 
         .card {
-            width: 100%;
+            width: 450px;
+            height: 300px;
             background-color: white !important;
+            justify-content: center;
+            
+
         }
 
     </style>

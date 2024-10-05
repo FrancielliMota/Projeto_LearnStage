@@ -2,7 +2,7 @@
 
     
 
-    <form action="\alunos" method="POST" class="form-container">
+    <form action="/alunos/" method="POST" class="form-container">
         @csrf
 
         <h1 class="text-center">Cadastro de Aluno</h1>

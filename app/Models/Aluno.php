@@ -10,7 +10,8 @@ class Aluno extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'email', 'data_nascimento', 'senha'];
+    protected $fillable = ['nome', 'email', 'data_nascimento', 'senha','cpf','telefone','sexo' ];
  // Adicione os campos que deseja permitir a edição
 }
+
 

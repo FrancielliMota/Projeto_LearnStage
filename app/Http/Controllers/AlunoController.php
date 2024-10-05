@@ -20,20 +20,8 @@ class AlunoController extends Controller
 
     public function store(Request $request)
 {
-    $this->validateRequest($request, [
-        'nome' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:alunos',
-        'senha' => 'required|string|min:8',
-        'cpf' => 'required|string|max:11',
-        'telefone' => 'nullable|string|min:11',
-        'sexo' => 'nullable|string|max:10',
-        'data_nascimento' => 'required|date',
-       
-      
-    ]);
-
     Aluno::create($request->all());
-    return $this->redirectWithMessage('alunos.index', 'Aluno criado com sucesso!');
+    return redirect()->route('alunos.index')->with('message', 'Aluno criado com sucesso!');
 }
 
 

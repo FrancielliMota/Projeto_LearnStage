@@ -1,5 +1,6 @@
 <x-app-layout>
 
+
     <h1 class="dashboard-title text-center">Dashboard</h1>
 
     <!-- Container dos cards -->

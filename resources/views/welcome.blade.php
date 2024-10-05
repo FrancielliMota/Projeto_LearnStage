@@ -64,7 +64,7 @@
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="col-md-4">
-        <img src="{{ asset('images/logo.webp') }}" class="card-img-top" alt="Logo Learn Stage" style="border-radius: 15rem;">
+        <img src="{{ asset('images/logo.webp') }}" class="card-img-top" alt="Logo Learn Stage" style="border-radius: 15rem; border: 2px solid silver;">
     </div>
 </div>
 
