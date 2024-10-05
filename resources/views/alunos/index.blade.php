@@ -28,7 +28,7 @@
                     </div>
                     <div class="card-body d-flex flex-column justify-content-between">
                             <h4 class="card-title">Listar Alunos</h4>
-                            <a href="{{ route('alunos.index') }}" class="btn btn-primary mt-auto">Listar</a>
+                            <a href="{{ route('alunos.show') }}" class="btn btn-primary mt-auto">Listar</a>
                     </div>
                 </div>
         
@@ -82,7 +82,3 @@
 </div>
 
 </x-app-layout>
-
-
-
-

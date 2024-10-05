@@ -1,6 +1,6 @@
 <x-app-layout>
 
-@section('content')
+
 <div class="container">
     <h1>Editar Aluno</h1>
     <form action="{{ route('alunos.update', $aluno->id) }}" method="POST">
@@ -15,5 +15,5 @@
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
 </div>
-@endsection
+
 </x-app-layout>

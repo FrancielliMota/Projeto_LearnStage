@@ -27,8 +27,9 @@ class AlunoController extends Controller
 
     public function show(Aluno $aluno)
     {
-        return $this->viewResponse('alunos.show', compact('aluno')); // Passa a variável para a view de detalhes
+        return $this->viewResponse('alunos.detalhe', compact('alunos')); // Passa a variável para a view de detalhes
     }
+
 
     public function edit(Aluno $aluno)
     {
