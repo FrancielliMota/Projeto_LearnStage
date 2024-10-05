@@ -1,5 +1,6 @@
 <x-app-layout>
 
+
     
 
     <form action="/alunos/" method="POST" class="form-container">

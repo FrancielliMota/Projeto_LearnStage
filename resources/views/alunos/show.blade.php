@@ -1,43 +1,26 @@
 <x-app-layout>
 
-    <h1 class="dashboard-title text-center">Listar Alunos</h1>
+<form action="/alunos/" method="POST" class="form-container">
 
-    @if(session('message'))
-        <div class="alert alert-success">{{ session('message') }}</div>
-    @endif
-
+    @CSRF
     <div class="container mt-5">
-        <h1>Lista de Alunos</h1>
+        <h1>Detalhes do Aluno</h1>
 
-        @if ($alunos->isEmpty())  
-            <p>Não há alunos cadastrados.</p>
-        @else
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Data de Nascimento</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($alunos as $aluno)
-                        <tr>
-                            <td>{{ $aluno->id }}</td>
-                            <td>{{ $aluno->nome }}</td>
-                            <td>{{ $aluno->email }}</td>
-                            <td>{{ \Carbon\Carbon::parse($aluno->data_nascimento)->format('d/m/Y') }}</td>
-                            <td>
-                                <a href="{{ route('alunos.detalhe', $aluno->id) }}" class="btn btn-info">Ver</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @endif
+        <div class="card">
+            <div class="card-header">
+                <h2>{{ $aluno->nome }}</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Email:</strong> {{ $aluno->email }}</p>
+                <p><strong>Data de Nascimento:</strong> {{ \Carbon\Carbon::parse($aluno->data_nascimento)->format('d/m/Y') }}</p>
+                <p><strong>Telefone:</strong> {{ $aluno->telefone }}</p>
+                <p><strong>Sexo:</strong> {{ $aluno->sexo }}</p>
+                <!-- Adicione mais informações conforme necessário -->
+            </div>
+            <div class="card-footer">
+                <a href="{{ route('alunos.index') }}" class="btn btn-secondary">Voltar</a>
+            </div>
+        </div>
     </div>
-
+</form>
 </x-app-layout>
-

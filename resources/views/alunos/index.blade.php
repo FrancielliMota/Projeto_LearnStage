@@ -1,84 +1,67 @@
 
-<x-app-layout>
+ <x-app-layout>
 
     <h1 class="dashboard-title text-center">Gerenciar Alunos</h1>
 
     @if(session('message'))
-    {{session('message')}}
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
     @endif
+
 
     <!-- Container dos Cards -->
 
      <!-- Card Adicionar -->
     
-        <div class="card m-2">
-            <div class="icon mb-3">
-                                <i class="fas fa-user-plus fa-1x"></i>
-                            </div>
-                            <div class="card-body d-flex flex-column justify-content-between">
-                                <h4 class="card-title">Adicionar Aluno</h4>
-                                <a href="{{ route('alunos.create') }}" class="btn btn-success mt-auto">Adicionar</a>
-                            </div>
-                        </div>
-        
-
-                <div class="card m-2">
-                    <div class="icon mb-3">
-                            <i class="fas fa-users fa-1x"></i>
-                    </div>
-                    <div class="card-body d-flex flex-column justify-content-between">
-                            <h4 class="card-title">Listar Alunos</h4>
-                            <a href="{{ route('alunos.show') }}" class="btn btn-primary mt-auto">Listar</a>
-                    </div>
+            <div class="card m-2">
+                <div class="icon mb-3">
+                    <i class="fas fa-user-plus fa-2x"></i>
                 </div>
-        
-                <div class="card m-2">
-                    <div class="icon mb-3">
-                        <i class="fas fa-user-edit fa-1x"></i>
-                    </div>
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <h4 class="card-title">Editar Aluno</h4>
-                        <a href="{{ route('alunos.edit', 1) }}" class="btn btn-primary mt-auto">Editar</a>
-                    </div>
-                </div>
-
-                <div class="card m-2">
-                    <div class="icon mb-3">
-                        <i class="fas fa-user-times fa-1x"></i>
-                    </div>
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <h4 class="card-title">Excluir Aluno</h4>
-                        <a href="#" class="btn btn-danger mt-auto" data-toggle="modal" data-target="#excluirAlunoModal">Excluir</a>
-                    </div>
-                </div>
-        
-
-                <!-- Modal para Confirmação de Exclusão -->
-                <div class="modal fade" id="excluirAlunoModal" tabindex="-1" role="dialog" aria-labelledby="excluirAlunoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="excluirAlunoModalLabel">Confirmar Exclusão</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Tem certeza de que deseja excluir este aluno? Esta ação não pode ser desfeita.
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <form action="{{ route('alunos.destroy', 1) }}" method="POST" id="formExcluirAluno">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Excluir</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-body d-flex flex-column justify-content-between">
+                     <h4 class="card-title">Adicionar Aluno</h4>
+                    <a href="{{ route('alunos.create') }}" class="btn btn-success mt-auto">Adicionar</a>
                 </div>
             </div>
-    </div>
-</div>
+        
+            <div class="card m-2">
+                <div class="icon mb-3">
+                        <i class="fas fa-users fa-2x"></i>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-between">
+                        <h4 class="card-title">Listar Alunos</h4>
+                    <a href="{{ route('alunos.list') }}" class="btn btn-primary mt-auto">Listar</a>
+                </div>
+            </div>
+        
+            <div class="card m-2">
+                <div class="icon mb-3">
+                        <i class="fas fa-user-edit fa-2x"></i>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-between">
+                        <h4 class="card-title">Editar Aluno</h4>
+                        <a href="{{ route('alunos.edit', 1) }}" class="btn btn-primary mt-auto">Editar</a>
+                </div>
+            </div>
 
-</x-app-layout>
+            <div class="card m-2">
+                <div class="icon mb-3">
+                    <i class="fas fa-user-times fa-2x"></i>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h4 class="card-title">Excluir Aluno</h4>
+                    <form action="{{ route('alunos.destroy', $aluno->id) }}" method="POST" id="delete-form-{{ $aluno->id }}">
+                        @csrf
+                        @method('DELETE')
+                        <a href="#" class="btn btn-danger mt-auto" 
+                        onclick="event.preventDefault(); if(confirm('Tem certeza que deseja excluir este aluno?')) document.getElementById('delete-form-{{ $aluno->id }}').submit();">
+                        Excluir
+                        </a>
+                    </form>
+                </div>
+            </div>
+                
+    </x-app-layout>
+
+               
+

@@ -12,6 +12,7 @@ class AlunoController extends Controller
         $alunos = Aluno::all(); // Obtém todos os alunos
         return $this->viewResponse('alunos.index', compact('alunos')); // Passa a variável para a view
     }
+    
 
     public function create()
     {
@@ -19,15 +20,21 @@ class AlunoController extends Controller
     }
 
     public function store(Request $request)
-{
-    Aluno::create($request->all());
-    return redirect()->route('alunos.index')->with('message', 'Aluno criado com sucesso!');
-}
+    {
+        Aluno::create($request->all());
+        return redirect()->route('alunos.index')->with('message', 'Aluno criado com sucesso!');
+    }
+    
+    public function list()
+    {
+        return $this->viewResponse('alunos.list');
+       
+    }
 
 
     public function show(Aluno $aluno)
     {
-        return $this->viewResponse('alunos.detalhe', compact('alunos')); // Passa a variável para a view de detalhes
+        return $this->viewResponse('alunos.show', compact('alunos')); // Passa a variável para a view de detalhes
     }
 
 

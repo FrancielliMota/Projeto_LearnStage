@@ -4,7 +4,7 @@
     <h1 class="dashboard-title text-center">Dashboard</h1>
 
     <!-- Container dos cards -->
-    <div class="container">
+    <div class="container gambiarra">
         
     <!-- Formulário para alunos -->
         <form method="post" action="/alunos">

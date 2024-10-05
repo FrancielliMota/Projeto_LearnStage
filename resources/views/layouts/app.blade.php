@@ -22,7 +22,6 @@
             margin: 0;
             background-color: #f4f4f4;
             padding-top: 80px; 
-            margin-bottom: 50px; 
             font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
         }
@@ -32,8 +31,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px; 
-            margin-right: 300px;
+            gap: 10px; 
+        }
+
+        .gambiarra{
+            margin-left: -4rem !important;
         }
 
         /* Estilização dos cards */
@@ -124,7 +126,7 @@
 
         .form-container {
             width: 300rem;
-            margin-top: 100px;
+            margin-top: 100px  !important;
             margin-bottom: 100px !important;
             padding: 2rem;
             background-color: #f9f9f9;
