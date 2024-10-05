@@ -38,6 +38,7 @@
             margin-left: -4rem !important;
         }
 
+
         /* Estilização dos cards */
         .card {
             background-color: white;
@@ -126,14 +127,17 @@
 
         .form-container {
             width: 300rem;
-            margin-top: 100px  !important;
-            margin-bottom: 100px !important;
-            padding: 2rem;
+            margin-top: 30rem !important;
+            margin-bottom: 50px !important;
+            padding: 5rem;
             background-color: #f9f9f9;
-            border-radius: 8px;
+            border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            position: static;
+            clear: both;
+         
         }
+        
 
         .text-custom {
             color: #4A90E2 !important;
@@ -142,6 +146,7 @@
         button{
             margin-top: 40px;
         }
+        
 
        
 
