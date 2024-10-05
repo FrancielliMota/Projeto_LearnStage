@@ -13,7 +13,7 @@
 # Repositório para Desenvolvimento de Projetos em Laravel
 
 ## Introdução
-Laravel é um dos frameworks PHP mais populares e robustos, amplamente utilizado para o desenvolvimento de aplicações web. Sua arquitetura baseada em MVC (Model-View-Controller) e sua ênfase em simplicidade e elegância no código o tornam uma escolha popular entre desenvolvedores. Laravel oferece uma série de recursos que facilitam a criação de sistemas complexos de maneira eficiente, segura e escalável. Sua arquitetura baseada em MVC (Model-View-Controller) permite a separação lógica entre interface e funcionalidades, favorecendo a manutenção e a expansão do sistema.
+Laravel é um dos frameworks PHP mais populares e robustos, amplamente utilizado para o desenvolvimento de aplicações web. Sua arquitetura baseada em MVC (Model-View-Controller) e sua ênfase em simplicidade e elegância no código o tornam uma escolha popular entre desenvolvedores. Laravel oferece uma série de recursos que facilitam a criação de sistemas complexos de maneira eficiente, segura e escalável. Ademais, permite a separação lógica entre interface e funcionalidades, favorecendo a manutenção e a expansão do sistema.
 
 ## 📚 Ementa:
 
