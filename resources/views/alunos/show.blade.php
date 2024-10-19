@@ -1,26 +1,42 @@
 <x-app-layout>
 
-<form action="/alunos/" method="POST" class="form-container">
+<h1 class="dashboard-title text-center">Detalhes do Aluno</h1>
 
-    @CSRF
-    <div class="container mt-5">
-        <h1>Detalhes do Aluno</h1>
+ <div class="content">
 
-        <div class="card">
-            <div class="card-header">
-                <h2>{{ $aluno->nome }}</h2>
-            </div>
-            <div class="card-body">
-                <p><strong>Email:</strong> {{ $aluno->email }}</p>
-                <p><strong>Data de Nascimento:</strong> {{ \Carbon\Carbon::parse($aluno->data_nascimento)->format('d/m/Y') }}</p>
-                <p><strong>Telefone:</strong> {{ $aluno->telefone }}</p>
-                <p><strong>Sexo:</strong> {{ $aluno->sexo }}</p>
-                <!-- Adicione mais informações conforme necessário -->
-            </div>
-            <div class="card-footer">
-                <a href="{{ route('alunos.index') }}" class="btn btn-secondary">Voltar</a>
-            </div>
-        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                
+                    <th>Nome:</th>
+                    <th>Email: </th>
+                    <th>Data de Nascimento: </th>
+                    <th>Senha: </th>
+                    <th>CPF: </th>
+                    <th>Telefone: </th>
+                    <th>Sexo: </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($alunos as $c)
+                    <tr>
+                        <td>{{ $c->nome }}</td>
+                        <td>{{ $c->email }}</td>
+                        <td>{{ $c->data_nascimento }}</td>
+                        <td>{{ $c->senha }}</td>
+                        <td>{{ $c->cpf}}</td>
+                        <td>{{ $c->telefone }}</td>
+                        <td>{{ $c->sexo }}</td>
+                        <td>
+                            <a href="/alunos/{{ $c->id }}/edit" class="btn btn-outline-warning">Alterar</a>
+                            <a href="/alunos/{{ $c->id }}" class="btn btn-outline-danger">Excluir</a>
+
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-</form>
 </x-app-layout>

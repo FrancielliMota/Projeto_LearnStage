@@ -1,5 +1,4 @@
-
- <x-app-layout>
+<x-app-layout>
 
     <h1 class="dashboard-title text-center">Gerenciar Alunos</h1>
 
@@ -30,7 +29,7 @@
                 </div>
                 <div class="card-body d-flex flex-column justify-content-between">
                         <h4 class="card-title">Listar Alunos</h4>
-                    <a href="{{ route('alunos.list') }}" class="btn btn-primary mt-auto">Listar</a>
+                    <a href="{{ route('alunos.show', 1) }}" class="btn btn-primary mt-auto">Listar</a>
                 </div>
             </div>
         
@@ -50,14 +49,7 @@
                 </div>
                 <div class="card-body d-flex flex-column justify-content-between">
                     <h4 class="card-title">Excluir Aluno</h4>
-                    <form action="{{ route('alunos.destroy', $aluno->id) }}" method="POST" id="delete-form-{{ $aluno->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <a href="#" class="btn btn-danger mt-auto" 
-                        onclick="event.preventDefault(); if(confirm('Tem certeza que deseja excluir este aluno?')) document.getElementById('delete-form-{{ $aluno->id }}').submit();">
-                        Excluir
-                        </a>
-                    </form>
+                    <a href="{{ route('alunos.destroy', 1) }}" class="btn btn-primary mt-auto">Editar</a>  
                 </div>
             </div>
                 

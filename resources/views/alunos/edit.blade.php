@@ -1,9 +1,11 @@
 <x-app-layout>
 
-<form action="/alunos/edit" method="PUT" class="form-container">
-@csrf
+<h1 class="dashboard-title text-center">Editar Aluno</h1>
 
-<div class="container">
+<div class="form-container">
+    <form action="{{ route('alunos.edit') }}" method="PUT">
+        @csrf
+
     <h1>Editar Aluno</h1>
       
         <div class="form-group">

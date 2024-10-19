@@ -22,43 +22,39 @@ class AlunoController extends Controller
     public function store(Request $request)
     {
         Aluno::create($request->all());
-        return redirect()->route('alunos.index')->with('message', 'Aluno criado com sucesso!');
+        $this->show(1);
     }
     
-    public function list()
+ /*    public function list(string $id)
     {
-        return $this->viewResponse('alunos.list');
-       
+        $alunos = Aluno::findOrFail($id);
+        return view('alunos.list', compact('alunos'));
+    } */
+
+
+    public function show(string $id)
+    {
+        $alunos = Aluno::all();
+        return view('alunos.show', compact('alunos')); // Passa a variável para a view de detalhes
     }
 
 
-    public function show(Aluno $aluno)
+    public function edit(Aluno $alunos)
     {
-        return $this->viewResponse('alunos.show', compact('alunos')); // Passa a variável para a view de detalhes
+        return $this->viewResponse('alunos.edit', compact('alunos')); 
     }
 
-
-    public function edit(Aluno $aluno)
+    public function update(Request $request, Aluno $alunos)
     {
-        return $this->viewResponse('alunos.edit', compact('aluno')); // Passa a variável para a view de edição
-    }
+        $this->validateRequest($request, [ ]);
 
-    public function update(Request $request, Aluno $aluno)
-    {
-        $this->validateRequest($request, [
-            'nome' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:alunos,email,' . $aluno->id,
-            'data_nascimento' => 'required|date',
-            'cpf' => 'required|string|max:14|unique:alunos,cpf,' . $aluno->id, // Validando o CPF para a atualização
-        ]);
-
-        $aluno->update($request->all());
+        $alunos->update($request->all());
         return $this->redirectWithMessage('alunos.index', 'Aluno atualizado com sucesso!'); // Redireciona com mensagem
     }
 
-    public function destroy(Aluno $aluno)
+    public function destroy(Aluno $alunos)
     {
-        $aluno->delete();
-        return $this->redirectWithMessage('alunos.index', 'Aluno deletado com sucesso!'); // Redireciona com mensagem
+        $alunos->delete();
+        return $this->redirectWithMessage('alunos.destroy', 'Aluno deletado com sucesso!'); // Redireciona com mensagem
     }
 }
