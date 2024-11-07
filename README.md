@@ -17,7 +17,7 @@ Laravel é um dos frameworks PHP mais populares e robustos, amplamente utilizado
 
 ## 📚 Ementa:
 
-Neste documento, apresentamos um projeto proposto na disciplina de "Desenvolvimento Web II", pertencente à grade curricular do 5º termo do curso de Análise e Desenvolvimento de Sistemas da FATEC de Presidente Prudente-SP. O projeto consiste no desenvolvimento de um sistema de gerenciamento de cursos online. A necessidade do projeto se justifica através da popularização da educação à distância, tanto em instituições de ensino quanto em plataformas de cursos livres, havendo uma urgência de ferramentas que otimizem a administração e o acompanhamento de cursos e matrículas.
+Neste documento, apresentamos um projeto proposto na disciplina de "Desenvolvimento Web II", pertencente à grade curricular do 5º termo do curso de Análise e Desenvolvimento de Sistemas da FATEC de Presidente Prudente-SP. O projeto consiste no desenvolvimento de um sistema de gerenciamento de cursos online. A necessidade do projeto se justifica através da popularização da educação à distância, principalmente através de plataformas de aprendizagem online. As plataformas de E-Learning, produto desse projeto, são sistemas digitais que facilitam a entrega, gerenciamento e acompanhamento de programas educacionais, proporcionando um ambiente virtual onde estudantes e instrutores podem interagir, acessar materiais de estudo, realizar atividades e avaliações, e acompanhar o progresso acadêmico.
 
 
 O sistema proposto deverá conter funcionalidades essenciais de CRUD (Create, Read, Update, Delete) para gerenciamento de quatro entidades principais:
