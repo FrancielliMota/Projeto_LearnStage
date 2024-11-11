@@ -3,7 +3,7 @@
 
 <h1 class="dashboard-title text-center">Cadastrar Aluno</h1>
 
-<div class="form-container">
+<div class="form-container regular">
     <form action="{{ route('alunos.store') }}" method="POST">
         @csrf
 
@@ -49,7 +49,7 @@
         </div>
 
         <div class="text-center mt-2">
-            <button type="submit" class="btn btn-success">Cadastrar Aluno</button>
+            <button type="submit" class="btn btn-success btn-large-rounded">Cadastrar Aluno</button>
         </div>
     </form>
 

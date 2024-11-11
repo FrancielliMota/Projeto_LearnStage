@@ -24,46 +24,39 @@
         });
     </script>
 
-
-
     <div class="form-container regular fixed-size-container"> 
 
-        <a class="btn btn-success btn-large-rounded" href="/alunos/create">
-            Inserir novo Aluno
+        <a class="btn btn-success btn-large-rounded" href="/cursos/create">
+            Inserir novo Curso
         </a>
 
         <table class="table table-hover mt-3">
             <thead>
                 <tr>
                     <th class="highlight-header">Nome</th>
-                    <th class="highlight-header">Email</th>
-                    <th class="highlight-header">Data de Nascimento</th>
-                    <th class="highlight-header">Senha</th>
-                    <th class="highlight-header">CPF</th>
-                    <th class="highlight-header">Telefone</th>
-                    <th class="highlight-header">Sexo</th>
+                    <th class="highlight-header">Carga Horária</th>
+                    <th class="highlight-header">Custo</th>
                     <th class="highlight-header">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($alunos as $aluno)
+                @foreach ($cursos as $curso)
                     <tr>
-                        <td>{{ $aluno->nome }}</td>
-                        <td>{{ $aluno->email }}</td>
-                        <td>{{ $aluno->data_nascimento }}</td>
-                        <td>{{ $aluno->senha }}</td>
-                        <td>{{ $aluno->cpf }}</td>
-                        <td>{{ $aluno->telefone }}</td>
-                        <td>{{ $aluno->sexo }}</td>
-                    
+                        <td>{{ $curso->nome }}</td>
+                        <td>{{ $curso->carga_horaria }}</td>
+                        <td>{{ $curso->custo }}</td>
+
                         <td>
-                            <a href='/alunos/{{ $aluno->id }}/edit' class="btn btn-warning">Alterar</a>
-                            <form action="/alunos/{{ $aluno->id }}" method="POST" style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class='btn btn-danger'>Excluir</button>
-                            </form>
+                            <div style="display: flex; flex-direction: column;">
+                                <a href='/cursos/{{ $curso->id }}/edit' class="btn btn-warning mb-2" style="margin-bottom: 2px;">Alterar</a>
+                                <form action="/cursos/{{ $curso->id }}" method="POST" style="display:inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class='btn btn-danger'>Excluir</button>
+                                </form>
+                            </div>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>

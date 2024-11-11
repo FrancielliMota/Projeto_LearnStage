@@ -1,5 +1,6 @@
 <x-app-layout>
-    <h1 class="dashboard-title text-center">Gerenciar Alunos</h1>
+
+    <h1 class="dashboard-title text-center">Gerenciar Professores</h1>
 
     @if(session('message'))
     <div id="session-alert" class="alert alert-success">
@@ -24,12 +25,10 @@
         });
     </script>
 
-
-
     <div class="form-container regular fixed-size-container"> 
 
-        <a class="btn btn-success btn-large-rounded" href="/alunos/create">
-            Inserir novo Aluno
+        <a class="btn btn-success btn-large-rounded" href="{{ route('professores.create') }}">
+            Inserir Novo Professor
         </a>
 
         <table class="table table-hover mt-3">
@@ -45,30 +44,34 @@
                     <th class="highlight-header">Ações</th>
                 </tr>
             </thead>
+
             <tbody>
-                @foreach ($alunos as $aluno)
+                @foreach ($professores as $professor)
                     <tr>
-                        <td>{{ $aluno->nome }}</td>
-                        <td>{{ $aluno->email }}</td>
-                        <td>{{ $aluno->data_nascimento }}</td>
-                        <td>{{ $aluno->senha }}</td>
-                        <td>{{ $aluno->cpf }}</td>
-                        <td>{{ $aluno->telefone }}</td>
-                        <td>{{ $aluno->sexo }}</td>
+                        <td>{{ $professor->nome }}</td>
+                        <td>{{ $professor->email }}</td>
+                        <td>{{ $professor->data_nascimento }}</td>
+                        <td>{{ $professor->senha }}</td>
+                        <td>{{ $professor->cpf }}</td>
+                        <td>{{ $professor->telefone }}</td>
+                        <td>{{ $professor->sexo }}</td>
                     
                         <td>
-                            <a href='/alunos/{{ $aluno->id }}/edit' class="btn btn-warning">Alterar</a>
-                            <form action="/alunos/{{ $aluno->id }}" method="POST" style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class='btn btn-danger'>Excluir</button>
-                            </form>
+                            <div style="display: flex; flex-direction: column;">
+                                <a href='{{ route('professores.edit', $professor->id) }}' class="btn btn-warning mb-2">Alterar</a>
+                                <form action="{{ route('professores.destroy', $professor->id) }}" method="POST" style="display:inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class='btn btn-danger'>Excluir</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
-        </table>
-    </div>
 
+        </table>
+
+    </div>
 
 </x-app-layout>

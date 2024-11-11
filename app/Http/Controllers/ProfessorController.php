@@ -22,37 +22,52 @@ class ProfessorController extends Controller
 
     public function store(Request $request)
     {
-        Professor::create($request->validate([
+        $request->validate([
             'nome' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:professores',
-            // Adicione outros campos necessários
-        ]));
-        return redirect()->route('professores.index')->with('success', 'Professor criado com sucesso.');
+            'data_nascimento' => 'required|date',
+            'senha' => 'required|min:8',
+            'cpf' => 'required|string|max:14|unique:professores',
+            'telefone' => 'required|string|max:15',
+            'sexo' => 'required|string|max:10'
+        ]);
+
+        Professor::create($request->all());
+        return redirect()->route('professores.index')->with('message', 'Professor criado com sucesso!');
     }
 
-    public function show(Professor $professor)
+    public function show(string $id)
     {
+        $professor = Professor::findOrFail($id);
         return view('professores.show', compact('professor'));
     }
 
-    public function edit(Professor $professor)
+    public function edit(string $id)
     {
+        $professor = Professor::findOrFail($id);
         return view('professores.edit', compact('professor'));
     }
 
-    public function update(Request $request, Professor $professor)
+    public function update(Request $request, string $id)
     {
-        $professor->update($request->validate([
+        $request->validate([
             'nome' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:professores,email,' . $professor->id,
-            // Adicione outros campos necessários
-        ]));
-        return redirect()->route('professores.index')->with('success', 'Professor atualizado com sucesso.');
+            'email' => 'required|string|email|max:255|unique:professores,email,' . $id,
+            'data_nascimento' => 'required|date',
+            'cpf' => 'required|string|max:14|unique:professores,cpf,' . $id,
+            'telefone' => 'required|string|max:15',
+            'sexo' => 'required|string|max:10'
+        ]);
+
+        $professor = Professor::findOrFail($id);
+        $professor->update($request->all());
+        return redirect()->route('professores.index')->with('message', 'Professor atualizado com sucesso!');
     }
 
-    public function destroy(Professor $professor)
+    public function destroy(string $id)
     {
+        $professor = Professor::findOrFail($id);
         $professor->delete();
-        return redirect()->route('professores.index')->with('success', 'Professor deletado com sucesso.');
+        return redirect()->route('professores.index')->with('message', 'Professor excluído com sucesso!');
     }
 }

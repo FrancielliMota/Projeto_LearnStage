@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
-
 
 class CursoController extends Controller
 {
@@ -21,35 +19,45 @@ class CursoController extends Controller
 
     public function store(Request $request)
     {
-        Curso::create($request->validate([
+        $request->validate([
             'nome' => 'required|string|max:255',
-            // Adicione outros campos necessários
-        ]));
-        return redirect()->route('cursos.index')->with('success', 'Curso criado com sucesso.');
+            'carga_horaria' => 'required|integer',
+            'custo' => 'required|numeric',
+        ]);
+
+        Curso::create($request->all());
+        return redirect()->route('cursos.index')->with('message', 'Curso criado com sucesso!');
     }
 
-    public function show(Curso $curso)
+    public function show($id)
     {
+        $curso = Curso::findOrFail($id);
         return view('cursos.show', compact('curso'));
     }
 
-    public function edit(Curso $curso)
+    public function edit($id)
     {
+        $curso = Curso::findOrFail($id);
         return view('cursos.edit', compact('curso'));
     }
 
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
-        $curso->update($request->validate([
+        $request->validate([
             'nome' => 'required|string|max:255',
-            // Adicione outros campos necessários
-        ]));
-        return redirect()->route('cursos.index')->with('success', 'Curso atualizado com sucesso.');
+            'carga_horaria' => 'required|integer',
+            'custo' => 'required|numeric',
+        ]);
+
+        $curso = Curso::findOrFail($id);
+        $curso->update($request->all());
+        return redirect()->route('cursos.index')->with('message', 'Curso atualizado com sucesso!');
     }
 
-    public function destroy(Curso $curso)
+    public function destroy($id)
     {
+        $curso = Curso::findOrFail($id);
         $curso->delete();
-        return redirect()->route('cursos.index')->with('success', 'Curso deletado com sucesso.');
+        return redirect()->route('cursos.index')->with('message', 'Curso excluído com sucesso!');
     }
 }

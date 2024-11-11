@@ -3,62 +3,73 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Matricula;
+use App\Models\Aluno;
+use App\Models\Curso;
+use App\Models\Professor;
 
 class MatriculaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $matriculas = Matricula::with(['aluno', 'curso', 'professor'])->get();
+        return view('matriculas.index', compact('matriculas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $alunos = Aluno::all();
+        $cursos = Curso::all();
+        $professores = Professor::all();
+        return view('matriculas.create', compact('alunos', 'cursos', 'professores'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'aluno_id' => 'required|exists:alunos,id',
+            'curso_id' => 'required|exists:cursos,id',
+            'professor_id' => 'required|exists:professores,id'
+        ]);
+
+        Matricula::create($request->all());
+        return redirect()->route('matriculas.index')->with('message', 'Matrícula criada com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $matricula = Matricula::with(['aluno', 'curso', 'professor'])->findOrFail($id);
+        return view('matriculas.show', compact('matricula'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $matricula = Matricula::findOrFail($id);
+        $alunos = Aluno::all();
+        $cursos = Curso::all();
+        $professores = Professor::all();
+        return view('matriculas.edit', compact('matricula', 'alunos', 'cursos', 'professores'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'aluno_id' => 'required|exists:alunos,id',
+            'curso_id' => 'required|exists:cursos,id',
+            'professor_id' => 'required|exists:professores,id'
+        ]);
+
+        $matricula = Matricula::findOrFail($id);
+        $matricula->update($request->all());
+
+        return redirect()->route('matriculas.index')->with('message', 'Matrícula atualizada com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $matricula = Matricula::findOrFail($id);
+        $matricula->delete();
+
+        return redirect()->route('matriculas.index')->with('message', 'Matrícula excluída com sucesso!');
     }
 }

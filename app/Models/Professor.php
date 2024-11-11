@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Professor extends Model
 {
     use HasFactory;
+
+    protected $table = 'professores'; 
+
+    protected $fillable = [
+        'nome',
+        'email',
+        'data_nascimento',
+        'senha',
+        'cpf',
+        'telefone',
+        'sexo'
+    ];
+    public function matriculas()
+    {
+        return $this->hasMany(Matricula::class);
+    }
+
 }
