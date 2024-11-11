@@ -30,9 +30,11 @@
                         <td>{{ $c->telefone }}</td>
                         <td>{{ $c->sexo }}</td>
                         <td>
+                            
+                        <div style="display: flex; flex-direction: column;">
                             <a href="/alunos/{{ $c->id }}/edit" class="btn btn-outline-warning">Alterar</a>
                             <a href="/alunos/{{ $c->id }}" class="btn btn-outline-danger">Excluir</a>
-
+                        </div>
                         </td>
                     </tr>
                 @endforeach

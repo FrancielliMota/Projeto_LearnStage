@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     
+
+
     <style>
         /* Estilização geral da página */
         body {
@@ -31,12 +33,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px; 
+            gap: 15px; 
         }
 
-        .gambiarra{
-            margin-left: -2rem !important;
-        }
+    
 
 
         /* Estilização dos cards */
@@ -44,9 +44,9 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px; 
-            height: 300px; 
-            padding: 10px;
+            width: 80rem !important;
+            height: 20rem;
+            padding: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -65,7 +65,7 @@
 
         /* Estilização do ícone no card */
         .card .icon {
-            font-size: 50px; 
+            font-size: 4rem; 
             color: #4caf50; 
             margin-bottom: 20px;
         }
@@ -127,8 +127,6 @@
 
         .form-container {
             width: 150rem;
-            /* margin-top: 10rem !important;
-            margin-bottom: 5rem !important; */
             padding: 5rem;
             background-color: #f9f9f9;
             border-radius: 15px;
@@ -185,7 +183,7 @@
         }
 
         button{
-            margin-top: 40px;
+            margin-top: 1rem;
         }
 
         .fixed-size-container { height: 60rem; /* Ajuste este valor conforme necessário */ overflow-y: auto; }
@@ -206,8 +204,7 @@
             padding: 1rem; /* Adiciona espaçamento interno */
             font-size: 1rem; /* Aumenta o tamanho da fonte */
         }
-
-
+        
  
 
 

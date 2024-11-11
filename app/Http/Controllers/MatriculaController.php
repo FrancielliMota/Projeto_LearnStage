@@ -72,4 +72,18 @@ class MatriculaController extends Controller
 
         return redirect()->route('matriculas.index')->with('message', 'Matrícula excluída com sucesso!');
     }
+
+
+    public function metricas()
+    {
+        $matriculas = Matricula::with('curso')->get();
+        $quantidadePorCurso = $matriculas->groupBy('curso.nome')->map->count();
+
+        $cursos = $quantidadePorCurso->keys();
+        $quantidades = $quantidadePorCurso->values();
+
+        return view('metricas.index', compact('cursos', 'quantidades'));
+    }
 }
+
+

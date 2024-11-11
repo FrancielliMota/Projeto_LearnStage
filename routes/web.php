@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/professores', ProfessorController::class);
     Route::resource('/cursos', CursoController::class);
     Route::resource('matriculas', MatriculaController::class);
+    Route::get('/metricas', [MatriculaController::class, 'metricas'])->name('metricas');
+
 
 
 });  
